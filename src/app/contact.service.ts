@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Contact } from './contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
 
-  private baseURL:string="http://localhost:8080/"
+  private baseURL:string="http://localhost:8080"
   
   constructor(private httpClient:HttpClient) { }
 
@@ -20,6 +21,10 @@ export class ContactService {
   }
 
   findContactById(id:number):Observable<Contact>{
-    this.httpClient.get<Contact>(`${this.baseURL}/contact/${id}`);
+    return this.httpClient.get<Contact>(`${this.baseURL}/contact/${id}`);
+  }
+
+  deleteContactById(id:number):Observable<string>{
+    return this.httpClient.delete(`${this.baseURL}/contact/${id}`,{responseType:"text"});
   }
 }

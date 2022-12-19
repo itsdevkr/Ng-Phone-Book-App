@@ -1,0 +1,10 @@
+<h3>Create Contact</h3>
+<form>
+    {{msg}}
+    Contact Name: <input type="text" name="contactName" [(ngModel)]="contact.contactName" /><br/>
+    Contact Email: <input type="text" name="contactEmail" [(ngModel)]="contact.contactEmail" /><br/>
+    Contact Number: <input type="text" name="contactNum" [(ngModel)]="contact.contactNum" /><br/>
+
+    <input type="button" value="submit" (click)="saveContact()" />
+    
+</form>
