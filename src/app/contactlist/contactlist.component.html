@@ -1,1 +1,25 @@
-<p>contactlist works!</p>
+<h3>View Contacts</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phno</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of contacts">
+            <td>{{c.contactId}}</td>
+            <td>{{c.contactName}}</td>
+            <td>{{c.contactEmail}}</td>
+            <td>{{c.contactNum}}</td>
+            <td>
+                <button (click)="editContact(c.contactId)">Edit</button>
+            </td>
+            <td>
+                <button (click)="deleteContact(c.contactId)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
